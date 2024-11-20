@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Password
+    ports:
+      - "27017:27017"
+    networks:
+      - my_network
+    volumes:
+      - mongo-data:/data/db
+
+  # Backend service (Node.js app)
+  backend:
+    build:
+      context: ./3tier-nodejs/backend  # Path to your backend directory
+    environment:
+      - MONGO_URI=mongodb://root:Password@mongo:27017/todos?authSource=admin
+    ports:
+      - "3001:3001"  # Example port for backend (you can change this if needed)
+    depends_on:
+      - mongo
+    networks:
+      - my_network
+
+  # Frontend service (React app)
+  frontend:
+    build:
+      context: ./3tier-nodejs/frontend  # Path to your frontend directory
+    ports:
+      - "3000:3000"  # Example port for frontend (change this if needed)
+    depends_on:
+      - backend
+    networks:
+      - my_network
+    environment:
+      - REACT_APP_API_URL=http://localhost:3001/api
+
+networks:
+  my_network:
+    external: true
+
+volumes:
+  mongo-data:
+    driver: local
