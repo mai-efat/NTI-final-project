@@ -7,8 +7,7 @@ Here’s a brief description of the key files and directories in the project:
 
 - **`Dockerfile`**: Configuration to build Docker images for the application (front-end and back-end).
 - **`docker-compose.yml`**: Defines and runs multi-container Docker applications. It includes front-end, back-end, and MongoDB services.
-- **`package.json`**: The Node.js package manager file that defines dependencies and scripts for both front-end and back-end.
-  
+    
 ## **Technologies Used**
 - **Docker**: For containerization of the application.
 - **Docker Compose**: For running multi-container Docker applications.
