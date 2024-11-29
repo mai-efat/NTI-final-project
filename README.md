@@ -1,5 +1,3 @@
-# **Project Name**
-
 ## **Project Overview**
 This project includes Dockerized configurations for both the **front-end** and **back-end** applications, with MongoDB as the database. 
 It uses **Docker Compose** to facilitate local development and testing by managing multiple services (front-end, back-end, MongoDB).
