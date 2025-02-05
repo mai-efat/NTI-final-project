@@ -13,9 +13,9 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_TOKEN: 6604b9d314d5fdf014733a94dc30514b3844b0c4
         with:
           args: >
-              -Dsonar.organization=NTI-final-project
-              -Dsonar.projectKey=mai-efat 
+              -Dsonar.organization=mai-efat
+              -Dsonar.projectKey=mai-efat_NTI-final-project
               
